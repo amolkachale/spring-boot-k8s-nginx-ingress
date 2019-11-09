@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-k8s-clusterip-service2  # Name of service
+spec:
+  type: ClusterIP
+  selector:
+    app: k8s-app2
+  ports:
+    - protocol: TCP
+      port: 8081                          # Pod port
+      targetPort: 8081                    # Container port
+      

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: springboot-k8-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api/v1/app1
+        backend:
+          serviceName: spring-boot-k8s-clusterip-service1
+          servicePort: 8081
+      - path: /api/v1/app2
+        backend:
+          serviceName: spring-boot-k8s-clusterip-service2
+          servicePort: 8081
